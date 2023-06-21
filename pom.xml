@@ -1,14 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.filteredpush</groupId>
-  <artifactId>gen_gettytgn_service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>org.filteredpush</groupId>
+	<artifactId>gen_gettytgn_service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>gen_gettytgn_service</name>
-  <url>http://maven.apache.org</url>
+	<name>gen_gettytgn_service</name>
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,9 +36,29 @@
 			<version>3.0.0</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-jxc</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>4.0.3</version>
+		</dependency>		
 	</dependencies>
 	<build>
-		<plugins>				
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -54,9 +73,15 @@
 				<artifactId>jaxws-maven-plugin</artifactId>
 				<version>3.0.2</version>
 				<configuration>
+        			<wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>
+					<wsdlFiles>
+						<wsdlFile>TGNService_modified.wsdl</wsdlFile>
+					</wsdlFiles>
+<!--
 					<wsdlUrls>
-            			<wsdlUrl>http://vocabsservices.getty.edu/TGNService.asmx?WSDL</wsdlUrl>
+						<wsdlUrl>http://vocabsservices.getty.edu/TGNService.asmx?WSDL</wsdlUrl>
 					</wsdlUrls>
+-->
 					<keep>true</keep>
 					<target>3.0</target>
 					<extension>true</extension>

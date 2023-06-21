@@ -22,6 +22,7 @@ public class TGNServiceCheck {
 			while (i.hasNext()) { 
 				ListResults row = i.next();
 				System.out.println(row.getListValue());
+				System.out.println(row.getListId());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

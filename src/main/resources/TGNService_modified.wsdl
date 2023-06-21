@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://vocabsservices.getty.edu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://vocabsservices.getty.edu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TGN Web Services</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://vocabsservices.getty.edu/">
+      <s:element name="TGNGetSubjectTerms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSubjectTermsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetSubjectTermsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSubject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSubjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetSubjectResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetParents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetParentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetParentsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetChildren">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetChildrenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetChildrenResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetTermMatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="placetypeid" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="nationid" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetTermMatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetTermMatchResult" type="tns:Vocabulary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Vocabulary">
+        <s:sequence>
+           <s:element minOccurs="0" maxOccurs="1" name="Count" type="s:integer"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="List_Subject" type="tns:List_Subject"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="List_Subject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred_Term" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Preferred_Parent" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Subject_ID" type="s:integer"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Term" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TGNGetSyncSubjectID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSyncSubjectIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetSyncSubjectIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetMergedSubjectID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetMergedSubjectIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetMergedSubjectIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetRevisionHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetRevisionHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetRevisionHistoryResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSubjectBriefReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subjectID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetSubjectBriefReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetSubjectBriefReportsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetNations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nation_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="nation_text" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetNationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetNationsResult" type="tns:ArrayOfList_Results"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfList_Results">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="List_Results" type="tns:List_Results"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="List_Results">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="list_id" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="list_value" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TGNGetPtypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ptype_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ptype_text" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetPtypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetPtypesResult" type="tns:ArrayOfList_Results"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfList_Results" nillable="true" type="tns:ArrayOfList_Results"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TGNGetSubjectTermsSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetSubjectTerms"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectTermsSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetSubjectTermsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetSubject"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetSubjectResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetParents"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetParentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetChildren"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetChildrenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetTermMatch"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetTermMatchResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetSyncSubjectID"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetSyncSubjectIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetMergedSubjectID"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetMergedSubjectIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetRevisionHistory"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetRevisionHistoryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetSubjectBriefReports"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetSubjectBriefReportsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetNations"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetNationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetPtypes"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetPtypesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectTermsHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectTermsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchHttpGetIn">
+    <wsdl:part name="name" type="s:string"/>
+    <wsdl:part name="placetypeid" type="s:string"/>
+    <wsdl:part name="nationid" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDHttpGetIn">
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistoryHttpGetIn">
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="param" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistoryHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsHttpGetIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpGetIn">
+    <wsdl:part name="nation_id" type="s:string"/>
+    <wsdl:part name="nation_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpGetIn">
+    <wsdl:part name="ptype_id" type="s:string"/>
+    <wsdl:part name="ptype_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectTermsHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectTermsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetParentsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetChildrenHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchHttpPostIn">
+    <wsdl:part name="name" type="s:string"/>
+    <wsdl:part name="placetypeid" type="s:string"/>
+    <wsdl:part name="nationid" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetTermMatchHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSyncSubjectIDHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDHttpPostIn">
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetMergedSubjectIDHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistoryHttpPostIn">
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="param" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetRevisionHistoryHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsHttpPostIn">
+    <wsdl:part name="subjectID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetSubjectBriefReportsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpPostIn">
+    <wsdl:part name="nation_id" type="s:string"/>
+    <wsdl:part name="nation_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpPostIn">
+    <wsdl:part name="ptype_id" type="s:string"/>
+    <wsdl:part name="ptype_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:portType name="TGNWebServicesSoap">
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return termID and all terms based on subjectID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectTermsSoapIn"/>
+      <wsdl:output message="tns:TGNGetSubjectTermsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all data element associated with a VCS subject</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectSoapIn"/>
+      <wsdl:output message="tns:TGNGetSubjectSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return parent hierarchy for a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetParentsSoapIn"/>
+      <wsdl:output message="tns:TGNGetParentsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all immediate children of a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetChildrenSoapIn"/>
+      <wsdl:output message="tns:TGNGetChildrenSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return result count, preferred term and matching terms</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetTermMatchSoapIn"/>
+      <wsdl:output message="tns:TGNGetTermMatchSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return current subject ID for a given subject ID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSyncSubjectIDSoapIn"/>
+      <wsdl:output message="tns:TGNGetSyncSubjectIDSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of records with old and new IDs that have been merged</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetMergedSubjectIDSoapIn"/>
+      <wsdl:output message="tns:TGNGetMergedSubjectIDSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return info on edits made within certain data based on input parameter</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetRevisionHistorySoapIn"/>
+      <wsdl:output message="tns:TGNGetRevisionHistorySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns subset of data elements associated with a VCS subject (internal Getty use only); Similar to TGNGetSubject with no scope notes or suject sources</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectBriefReportsSoapIn"/>
+      <wsdl:output message="tns:TGNGetSubjectBriefReportsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsSoapIn"/>
+      <wsdl:output message="tns:TGNGetNationsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesSoapIn"/>
+      <wsdl:output message="tns:TGNGetPtypesSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TGNWebServicesHttpGet">
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return termID and all terms based on subjectID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectTermsHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetSubjectTermsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all data element associated with a VCS subject</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetSubjectHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return parent hierarchy for a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetParentsHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetParentsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all immediate children of a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetChildrenHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetChildrenHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return result count, preferred term and matching terms</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetTermMatchHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetTermMatchHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return current subject ID for a given subject ID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSyncSubjectIDHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetSyncSubjectIDHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of records with old and new IDs that have been merged</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetMergedSubjectIDHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetMergedSubjectIDHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return info on edits made within certain data based on input parameter</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetRevisionHistoryHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetRevisionHistoryHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns subset of data elements associated with a VCS subject (internal Getty use only); Similar to TGNGetSubject with no scope notes or suject sources</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectBriefReportsHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetSubjectBriefReportsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetNationsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetPtypesHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TGNWebServicesHttpPost">
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return termID and all terms based on subjectID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectTermsHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetSubjectTermsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all data element associated with a VCS subject</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetSubjectHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return parent hierarchy for a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetParentsHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetParentsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return all immediate children of a given subject record</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetChildrenHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetChildrenHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return result count, preferred term and matching terms</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetTermMatchHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetTermMatchHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return current subject ID for a given subject ID</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSyncSubjectIDHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetSyncSubjectIDHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of records with old and new IDs that have been merged</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetMergedSubjectIDHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetMergedSubjectIDHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return info on edits made within certain data based on input parameter</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetRevisionHistoryHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetRevisionHistoryHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns subset of data elements associated with a VCS subject (internal Getty use only); Similar to TGNGetSubject with no scope notes or suject sources</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetSubjectBriefReportsHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetSubjectBriefReportsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetNationsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetPtypesHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TGNWebServicesSoap" type="tns:TGNWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubjectTerms" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubject" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetParents" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetChildren" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetTermMatch" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetSyncSubjectID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetMergedSubjectID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetRevisionHistory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubjectBriefReports" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetNations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetPtypes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesSoap12" type="tns:TGNWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubjectTerms" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubject" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetParents" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetChildren" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetTermMatch" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetSyncSubjectID" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetMergedSubjectID" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetRevisionHistory" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetSubjectBriefReports" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetNations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetPtypes" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesHttpGet" type="tns:TGNWebServicesHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <http:operation location="/TGNGetSubjectTerms"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <http:operation location="/TGNGetSubject"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <http:operation location="/TGNGetParents"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <http:operation location="/TGNGetChildren"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <http:operation location="/TGNGetTermMatch"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <http:operation location="/TGNGetSyncSubjectID"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <http:operation location="/TGNGetMergedSubjectID"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <http:operation location="/TGNGetRevisionHistory"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <http:operation location="/TGNGetSubjectBriefReports"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <http:operation location="/TGNGetNations"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <http:operation location="/TGNGetPtypes"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesHttpPost" type="tns:TGNWebServicesHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="TGNGetSubjectTerms">
+      <http:operation location="/TGNGetSubjectTerms"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubject">
+      <http:operation location="/TGNGetSubject"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetParents">
+      <http:operation location="/TGNGetParents"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetChildren">
+      <http:operation location="/TGNGetChildren"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetTermMatch">
+      <http:operation location="/TGNGetTermMatch"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSyncSubjectID">
+      <http:operation location="/TGNGetSyncSubjectID"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetMergedSubjectID">
+      <http:operation location="/TGNGetMergedSubjectID"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetRevisionHistory">
+      <http:operation location="/TGNGetRevisionHistory"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetSubjectBriefReports">
+      <http:operation location="/TGNGetSubjectBriefReports"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetNations">
+      <http:operation location="/TGNGetNations"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <http:operation location="/TGNGetPtypes"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TGNWebServices">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TGN Web Services</wsdl:documentation>
+    <wsdl:port name="TGNWebServicesSoap" binding="tns:TGNWebServicesSoap">
+      <soap:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesSoap12" binding="tns:TGNWebServicesSoap12">
+      <soap12:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesHttpGet" binding="tns:TGNWebServicesHttpGet">
+      <http:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesHttpPost" binding="tns:TGNWebServicesHttpPost">
+      <http:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

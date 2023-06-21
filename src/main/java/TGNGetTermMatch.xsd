@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 (http://www.altova.com) by User (J. Paul Getty Trust) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Vocabulary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Count" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>The count of the number of subjects matching the search criteria</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Subject" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Preferred_Term">
+								<xs:annotation>
+									<xs:documentation>The preferred term of the overall subject</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="termid"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Preferred_Parent" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Comma-delimited string of preferred terms showing the sequence of parents in the preferred subject hierarchy</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Subject_ID" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>Unique identifier for a subject record</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Term" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Term other than the preferred term matching the search criteria</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="termid"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
