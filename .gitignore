@@ -1,5 +1,5 @@
 # generated sources
-src/main/java/edu/getty/
+src/main/java/edu/getty/tgn/service
 # default maven ignores
 target/
 pom.xml.tag

@@ -75,7 +75,11 @@
 				<configuration>
         			<wsdlDirectory>${project.basedir}/src/main/resources/</wsdlDirectory>
 					<wsdlFiles>
+<!--
 						<wsdlFile>TGNService_modified.wsdl</wsdlFile>
+						<wsdlFile>TGNService.wsdl</wsdlFile>
+-->
+						<wsdlFile>TGNService_minimal.wsdl</wsdlFile>
 					</wsdlFiles>
 <!--
 					<wsdlUrls>

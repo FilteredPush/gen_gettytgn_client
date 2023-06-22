@@ -3,6 +3,9 @@
   <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TGN Web Services</wsdl:documentation>
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://vocabsservices.getty.edu/">
+<!--
+	  <s:include schemaLocation="http://vocabsservices.getty.edu/Schemas/TGN/TGNGetTermMatch.xsd"/>
+-->
       <s:element name="TGNGetSubjectTerms">
         <s:complexType>
           <s:sequence>
@@ -95,14 +98,14 @@
       <s:element name="TGNGetTermMatchResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="TGNGetTermMatchResult" type="tns:Vocabulary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Vocabulary" type="tns:Vocabulary"/>
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:complexType name="Vocabulary">
         <s:sequence>
            <s:element minOccurs="0" maxOccurs="1" name="Count" type="s:integer"/>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="List_Subject" type="tns:List_Subject"/>
+           <s:element minOccurs="0" maxOccurs="unbounded" name="List_Subject" type="tns:List_Subject">
         </s:sequence>
       </s:complexType>
       <s:complexType name="List_Subject">

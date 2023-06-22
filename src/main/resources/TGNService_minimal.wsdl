@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://vocabsservices.getty.edu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://vocabsservices.getty.edu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TGN Web Services</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://vocabsservices.getty.edu/">
+      <s:element name="TGNGetNations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nation_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="nation_text" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetNationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetNationsResult" type="tns:ArrayOfList_Results"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfList_Results">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="List_Results" type="tns:List_Results"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="List_Results">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="list_id" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="list_value" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TGNGetPtypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ptype_id" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ptype_text" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TGNGetPtypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TGNGetPtypesResult" type="tns:ArrayOfList_Results"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfList_Results" nillable="true" type="tns:ArrayOfList_Results"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TGNGetNationsSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetNations"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetNationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesSoapIn">
+    <wsdl:part name="parameters" element="tns:TGNGetPtypes"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesSoapOut">
+    <wsdl:part name="parameters" element="tns:TGNGetPtypesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpGetIn">
+    <wsdl:part name="nation_id" type="s:string"/>
+    <wsdl:part name="nation_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpGetIn">
+    <wsdl:part name="ptype_id" type="s:string"/>
+    <wsdl:part name="ptype_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpPostIn">
+    <wsdl:part name="nation_id" type="s:string"/>
+    <wsdl:part name="nation_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetNationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpPostIn">
+    <wsdl:part name="ptype_id" type="s:string"/>
+    <wsdl:part name="ptype_text" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="TGNGetPtypesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfList_Results"/>
+  </wsdl:message>
+  <wsdl:portType name="TGNWebServicesSoap">
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsSoapIn"/>
+      <wsdl:output message="tns:TGNGetNationsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesSoapIn"/>
+      <wsdl:output message="tns:TGNGetPtypesSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TGNWebServicesHttpGet">
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetNationsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesHttpGetIn"/>
+      <wsdl:output message="tns:TGNGetPtypesHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TGNWebServicesHttpPost">
+    <wsdl:operation name="TGNGetNations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of TGN Nations (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetNationsHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetNationsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns full set of ULAN Place Types (internal Getty use only)</wsdl:documentation>
+      <wsdl:input message="tns:TGNGetPtypesHttpPostIn"/>
+      <wsdl:output message="tns:TGNGetPtypesHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TGNWebServicesSoap" type="tns:TGNWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TGNGetNations">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetNations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <soap:operation soapAction="http://vocabsservices.getty.edu/TGNGetPtypes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesSoap12" type="tns:TGNWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TGNGetNations">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetNations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <soap12:operation soapAction="http://vocabsservices.getty.edu/TGNGetPtypes" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesHttpGet" type="tns:TGNWebServicesHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="TGNGetNations">
+      <http:operation location="/TGNGetNations"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <http:operation location="/TGNGetPtypes"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TGNWebServicesHttpPost" type="tns:TGNWebServicesHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="TGNGetNations">
+      <http:operation location="/TGNGetNations"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TGNGetPtypes">
+      <http:operation location="/TGNGetPtypes"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TGNWebServices">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TGN Web Services</wsdl:documentation>
+    <wsdl:port name="TGNWebServicesSoap" binding="tns:TGNWebServicesSoap">
+      <soap:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesSoap12" binding="tns:TGNWebServicesSoap12">
+      <soap12:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesHttpGet" binding="tns:TGNWebServicesHttpGet">
+      <http:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TGNWebServicesHttpPost" binding="tns:TGNWebServicesHttpPost">
+      <http:address location="http://vocabsservices.getty.edu/TGNService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
